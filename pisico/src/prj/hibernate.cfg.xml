@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pisico?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="show_sql">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.transaction.flush_before_completion">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping class="prj.org.pisico.model.TbAgenda"/>
+    <mapping class="prj.org.pisico.model.TbBanco"/>
+    <mapping class="prj.org.pisico.model.TbCidade"/>
+    <mapping class="prj.org.pisico.model.TbConta"/>
+    <mapping class="prj.org.pisico.model.TbConvenio"/>
+    <mapping class="prj.org.pisico.model.TbPaciente"/>
+    <mapping class="prj.org.pisico.model.TbPerfil"/>
+    <mapping class="prj.org.pisico.model.TbPerfilHasTbUsuario"/>
+    <mapping class="prj.org.pisico.model.TbStatus"/>
+    <mapping class="prj.org.pisico.model.TbUf"/>
+    <mapping class="prj.org.pisico.model.TbUsuario"/>
+  </session-factory>
+</hibernate-configuration>

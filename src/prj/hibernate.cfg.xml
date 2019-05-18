@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pisico?zeroDateTimeBehavior=convertToNull</property>
+    <property name="use_outer_join">true</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">root</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.cache.use_second_level_cache">false</property>
+    <property name="hibernate.cache.use_query_cache">false</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.transaction.flush_before_completion">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.transaction.auto_close_session">true</property>
+    <property name="hibernate.connection.autocommit">true</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <mapping class="prj.org.pisico.model.TbAgenda"/>
+    <mapping class="prj.org.pisico.model.TbBanco"/>
+    <mapping class="prj.org.pisico.model.TbCidade"/>
+    <mapping class="prj.org.pisico.model.TbConta"/>
+    <mapping class="prj.org.pisico.model.TbConvenio"/>
+    <mapping class="prj.org.pisico.model.TbPaciente"/>
+    <mapping class="prj.org.pisico.model.TbPerfil"/>
+    <mapping class="prj.org.pisico.model.TbProfissao"/>
+    <mapping class="prj.org.pisico.model.TbPerfilHasTbUsuario"/>
+    <mapping class="prj.org.pisico.model.TbStatus"/>
+    <mapping class="prj.org.pisico.model.TbUf"/>
+    <mapping class="prj.org.pisico.model.TbUsuario"/>
+    <mapping class="prj.org.pisico.model.TbInstrucao"/>
+    <mapping class="prj.org.pisico.model.TbCid"/>
+  </session-factory>
+</hibernate-configuration>

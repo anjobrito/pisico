@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea69a518-4e5a-441c-a75a-219e548eb6bc">
+	<property name="ireport.zoom" value="0.8264462809917363"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT 
+       t.str_nome AS strNome,
+       t.dt_nasc  AS dtNasc,
+       c.str_Descricao AS strDescricao,
+       t.str_endereco  AS strEndereco,
+       t.str_cel AS strTelefone
+  FROM       tb_paciente t
+  INNER JOIN tb_convenio c  
+    ON t.tb_convenio_id_convenio = c.id_convenio]]>
+	</queryString>
+	<field name="strNome" class="java.lang.String"/>
+	<field name="dtNasc" class="java.sql.Date"/>
+	<field name="strDescricao" class="java.lang.String"/>
+	<field name="strEndereco" class="java.lang.String"/>
+	<field name="strTelefone" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="21" width="441" height="39" uuid="76da628c-d6ad-4ea8-9e22-a9b2931ad68d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Listagem de Pacientes]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="712" y="104" width="85" height="20" uuid="0c16ec29-98a8-4eb6-8b1f-c65ad77da410"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="659" y="104" width="27" height="20" uuid="42eb686f-ee2c-4f99-aa15-a0ab8e1daa66"/>
+				<text><![CDATA[Data : ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="32" y="26" width="100" height="88" uuid="26261944-5ab3-4a71-9306-31a06ed137ad"/>
+			</image>
+			<staticText>
+				<reportElement x="225" y="72" width="87" height="20" uuid="264140da-969e-4d41-9e18-5801f40de4f7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Pisicologa : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="72" width="148" height="20" uuid="e0c17166-932f-48dc-a363-17db787070eb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Ana Lúcia de Brito]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="159" height="20" uuid="81a41c5e-2667-47fd-bfe3-8b03279f4d5c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="5" width="124" height="20" uuid="6fa9a575-2e20-4f2c-8dfb-36fd972fc14b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="5" width="96" height="20" uuid="3c3f7272-1d00-4934-8efb-22592db0f6e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Convenio]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="27" width="802" height="1" uuid="c105f8bb-b769-4179-9ad3-6b35920f1937"/>
+			</line>
+			<staticText>
+				<reportElement x="540" y="4" width="100" height="20" uuid="7d87bd8d-59a7-4c7b-b336-d46d0c623c1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="712" y="5" width="81" height="20" uuid="0cd509d4-7718-4255-9925-49517d1789fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="290" height="16" uuid="b7bc0432-4c34-4ebe-afec-e3a44ce5250d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="1" width="100" height="19" uuid="01634983-e33b-4e40-a3b0-adc31c0f42a6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtNasc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="82" height="20" uuid="5e2de09e-e845-4f64-9b17-1c4825c4a359"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strDescricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="-1" width="200" height="20" uuid="a6c68ad2-0a4c-4f1e-a39b-147c3d9d2294"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strEndereco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="686" y="-1" width="115" height="20" uuid="8b763963-b27f-4abc-9660-758dd3054f51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strTelefone}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="701" y="9" width="100" height="20" uuid="d0c544db-a587-4a58-9ea6-acb9e26eeafc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

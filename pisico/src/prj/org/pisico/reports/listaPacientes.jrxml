@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="297fba64-aa08-4aa1-86f7-fac10f63b294">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT p.str_nome,p.str_numero,c.str_descricao
+FROM tb_paciente p 
+INNER JOIN tb_convenio C 
+ON P.tb_convenio_id_convenio=c.id_convenio]]>
+	</queryString>
+	<field name="str_nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="str_numero" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="str_descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="bf8196df-1014-4990-b025-57dd76038c30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Listagem de Pacientes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="181" height="20" uuid="cbdf890b-acec-4c13-80f0-f197eefc6e17"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nome Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="41" width="100" height="20" uuid="1fc0c474-5c05-4159-8a35-10e9224b54a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Numero Convenio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="41" width="164" height="20" uuid="30343619-a610-4bf2-889e-ac6154fd6e9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Convenio]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="58" width="555" height="1" uuid="5ae3415f-d804-4a5d-b9e2-17b91a7f7df9"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="181" height="20" uuid="1bbd23c6-a649-4f7c-a4d7-cac1a38af903"/>
+				<textFieldExpression><![CDATA[$F{str_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="100" height="20" uuid="a161cb3f-c570-492f-9c53-8e3f649b32dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{str_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="164" height="20" uuid="840e7c87-9c3f-462b-a060-07d6bfcedd09"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{str_descricao}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="58b430a6-907e-4d53-9c8d-ca4dccc92e51"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="58" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="553" height="1" uuid="183f0613-71ba-4ba6-8dc5-d8dff749b5d2"/>
+			</line>
+			<textField>
+				<reportElement x="450" y="12" width="100" height="20" uuid="bd18d281-3c4c-4d07-a61c-50653ebdb76b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="12" width="100" height="20" uuid="73e69c60-3cb2-42b7-a92f-32212279db34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Página : ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

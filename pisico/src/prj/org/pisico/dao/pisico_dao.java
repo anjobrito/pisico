@@ -1,0 +1,88 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package prj.org.pisico.dao;
+
+/**
+ *
+ * @author AndreBrito
+ */
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+public class pisico_dao {
+
+    private Session sessao;
+    private List listagem;
+    private boolean retorno;
+
+    public pisico_dao() {
+        this.sessao = NewHibernateUtil.getSessionFactory().openSession();
+        this.retorno = false;
+    }
+
+    public boolean save(Object obj) {
+        try {
+            this.sessao.getTransaction().begin();
+            this.sessao.save(obj);
+            this.sessao.getTransaction().commit();
+            this.retorno = true;
+        } catch (HibernateException ex) {
+            JOptionPane.showMessageDialog(null, ex.getCause() + " - " + ex.getMessage());
+        }
+        return this.retorno;
+    }
+
+    public boolean update(Object obj) {
+        try {
+            this.sessao.getTransaction().begin();
+            this.sessao.update(obj);
+            this.sessao.getTransaction().commit();
+            this.retorno = true;
+        } catch (HibernateException ex) {
+            JOptionPane.showMessageDialog(null, ex.getCause() + " - " + ex.getMessage());
+        }
+        return this.retorno;
+    }
+
+    public boolean delete(Object obj) {
+        try {
+            this.sessao.getTransaction().begin();
+            this.sessao.delete(obj);
+            this.sessao.getTransaction().commit();
+            this.retorno = true;
+        } catch (HibernateException ex) {
+            JOptionPane.showMessageDialog(null, ex.getCause() + " - " + ex.getMessage());
+        }
+        return this.retorno;
+    }
+
+    public List listar(Object object, String namedQuery, String[] fieldNames, Object[] param) {
+        try {
+            int x = 0;
+            Query qy = sessao.getNamedQuery(namedQuery);
+            if (fieldNames != null && param != null) {
+                while (x < fieldNames.length) {
+                    if (param[x] instanceof Integer) {
+                        qy.setParameter(fieldNames[x], Integer.parseInt(param[x].toString()));
+                    } else if (param[x] instanceof String) {
+                        qy.setParameter(fieldNames[x], param[x].toString());
+                    }else if (param[x] instanceof Date) {
+                        qy.setParameter(fieldNames[x], param[x].toString());
+                    }
+                    x++;
+                }
+            }
+            listagem = qy.list();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+        }
+        return this.listagem;
+    }
+}

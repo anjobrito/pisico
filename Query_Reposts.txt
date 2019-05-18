@@ -1,0 +1,7 @@
+SELECT ag.dt_agendamento, p.str_nome,p.str_numero,cc.str_descricao,aghpa.str_historico
+FROM tb_agenda ag 
+ INNER JOIN tb_agenda_has_tb_paciente aghpa 
+ ON ag.id_agenda=aghpa.tb_agenda_id_agenda
+ INNER JOIN tb_paciente p 
+ ON aghpa.tb_paciente_id_paciente=p.id_paciente
+ INNER JOIN tb_convenio cc ON cc.id_convenio=p.tb_convenio_id_convenio
